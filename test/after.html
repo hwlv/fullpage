@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <style>
+        .btn {
+            position: relative;
+            display: block;
+            margin: 200px auto;
+            width: 200px;
+            padding: 10px 20px;
+            font-size: 20px;
+            background: #fff;
+            color: #6bdf4e;
+            border: 1px solid #6bdf4e;
+            cursor: pointer;
+        }
+
+        .btn::after {
+            content: attr(data-tip);
+            display: none;
+            position: absolute;
+            padding: 5px 10px;
+            left: 50%;
+            bottom: 100%;
+            margin-bottom: 12px;
+            transform: translateX(-50%);
+            font-size: 16px;
+            background: #000;
+            color: #fff;
+            cursor: default;
+        }
+
+        .btn::before {
+            content: " ";
+            position: absolute;
+            display: none;
+            left: 50%;
+            bottom: 100%;
+            transform: translateX(-50%);
+            margin-bottom: 3px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 9px solid #000;
+        }
+
+        .btn:hover::after,
+        .btn:hover::before {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<button class="btn" data-tip="ToolTip">button</button>
+</body>
+</html>
